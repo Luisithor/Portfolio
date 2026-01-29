@@ -4,7 +4,8 @@ import styles from "../styles/projects.module.css";
 const projects = [
   {
     name: "Pawify",
-    concept: "Diseñar una experiencia clara para adopción y cuidado responsable",
+    concept:
+      "Diseñar una experiencia clara para adopción y cuidado responsable",
     description:
       "Pawify nace de la necesidad de reducir fricción en procesos emocionales. La prioridad fue la claridad, la empatía y la jerarquía visual.",
     decisions: [
@@ -15,16 +16,16 @@ const projects = [
     link: "https://pawifyy.netlify.app/",
   },
   {
-    name: "Proyecto en evolución",
-    concept: "Exploración de estructura, narrativa y experiencia",
+    name: "Umbral",
+    concept: "Puerta de entrada hacia interfaces más humanas",
     description:
-      "Un proyecto enfocado en refinar mi proceso como UX Engineer, priorizando intención sobre ornamento.",
+      "Proyecto enfocado en la claridad absoluta, diseñado para demostrar que la tecnología puede ser comprensible, elegante y, sobre todo, acogedora para cualquier usuario.",
     decisions: [
-      "Menos elementos, más significado",
-      "Diseño guiado por lectura y ritmo",
-      "Iteración constante",
+      "Claridad radical frente a la saturación visual",
+      "Jerarquía informativa diseñada para el acompañamiento del usuario",
+      "Optimización continua basada en la experiencia de uso real",
     ],
-    disabled: true,
+    link: "https://umbralweb.netlify.app/",
   },
 ];
 
