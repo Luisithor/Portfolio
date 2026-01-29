@@ -1,0 +1,39 @@
+.notes {
+  padding: 16vh 8vw;
+}
+
+/* Disposición libre, pensamiento flotante */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  max-width: 920px;
+}
+
+/* Nota */
+.note {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: default;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Subrayado consciente */
+.note::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+  transition: width 0.45s ease;
+}
+
+.note:hover::after {
+  width: 100%;
+}

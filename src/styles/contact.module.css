@@ -1,0 +1,48 @@
+.contact {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8vw;
+}
+
+/* Contenido */
+.content {
+  max-width: 720px;
+}
+
+/* Texto */
+.content p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Frase final */
+.strong {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Links */
+.links {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 2.2rem;
+}
+
+.links a {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+  transition: opacity 0.3s ease;
+}
+
+.links a:hover {
+  opacity: 0.55;
+}

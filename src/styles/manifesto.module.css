@@ -1,0 +1,59 @@
+.manifesto {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8vw;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  max-width: 720px;
+  z-index: 2;
+}
+
+.content p {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.45;
+  font-weight: 400;
+  margin: 0;
+}
+
+.spacer {
+  height: 3rem;
+}
+
+.emphasis {
+  font-weight: 500;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.subtle {
+  font-size: 0.95em;
+  opacity: 0.55;
+}
+
+.blobOne {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(160px);
+  top: 20%;
+  left: 55%;
+  opacity: 0.35;
+}
+
+.blobTwo {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(140px);
+  bottom: 15%;
+  left: 15%;
+  opacity: 0.3;
+}

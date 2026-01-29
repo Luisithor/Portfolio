@@ -1,0 +1,40 @@
+.process {
+  padding: 22vh 8vw;
+}
+
+/* Grid como estructura mental */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 5rem;
+}
+
+/* Card = pensamiento */
+.card {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 360px;
+}
+
+/* Índice editorial */
+.index {
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
