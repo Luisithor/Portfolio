@@ -1,48 +1,412 @@
 .contact {
-  min-height: 80vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 0 8vw;
+  padding: 10vh 8vw;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: white;
 }
 
-/* Contenido */
+.interactiveBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floatingShape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.1;
+}
+
+.floatingMessages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floatingMessage {
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .content {
-  max-width: 720px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* Texto */
-.content p {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.6rem, 3vw, 2rem);
-  line-height: 1.45;
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titleIcon {
+  width: 50px;
+  height: 50px;
+  color: #FF6B8B;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
-/* Frase final */
-.strong {
-  margin-top: 1rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-/* Links */
-.links {
-  margin-top: 3.5rem;
-  display: flex;
-  gap: 2.2rem;
-}
-
-.links a {
-  font-size: 0.8rem;
+.titleAccent {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    #FF6B8B,
+    #3B82F6,
+    #10B981,
+    #8B5CF6
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Message Container */
+.messageContainer {
+  margin-bottom: 6rem;
+}
+
+.messageBlock {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.messageIcon {
+  width: 40px;
+  height: 40px;
+  color: #8B5CF6;
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+}
+
+.message {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.ctaBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  max-width: 800px;
+}
+
+.ctaIcon {
+  width: 30px;
+  height: 30px;
+  color: #F59E0B;
+  flex-shrink: 0;
+}
+
+.ctaText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    #FF6B8B,
+    #3B82F6,
+    #10B981,
+    #8B5CF6,
+    #FF6B8B
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+/* Links Grid */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.linkCard {
+  position: relative;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
   text-decoration: none;
-  color: var(--text-primary);
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 0.2rem;
+  color: inherit;
+}
+
+.linkCard:hover {
+  text-decoration: none;
+}
+
+.cardBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.cardContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.linkIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  font-size: 28px;
+}
+
+.linkInfo {
+  flex: 1;
+}
+
+.linkPlatform {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  color: white;
+}
+
+.linkLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+}
+
+.linkUsername {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.linkArrow {
+  opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
-.links a:hover {
-  opacity: 0.55;
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.cardBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Invitation */
+.invitation {
+  margin-bottom: 4rem;
+}
+
+.invitationContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.coffeeIcon {
+  width: 50px;
+  height: 50px;
+  color: #F59E0B;
+}
+
+.invitationText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 600px;
+}
+
+.emailButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #FF6B8B, #EC4899);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 0.5rem 0;
+}
+
+.heart {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #FF6B8B;
+}
+
+.footerMeta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titleContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .messageBlock {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .linkCard {
+    padding: 1.5rem;
+  }
+  
+  .linkIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.linkCard:hover .linkArrow {
+  opacity: 1;
 }

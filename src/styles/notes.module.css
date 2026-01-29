@@ -1,39 +1,299 @@
 .notes {
-  padding: 16vh 8vw;
-}
-
-/* Disposición libre, pensamiento flotante */
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.4rem;
-  max-width: 920px;
-}
-
-/* Nota */
-.note {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  cursor: default;
   position: relative;
+  padding: 15vh 8vw;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: white;
+}
+
+.typographyBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.backgroundWord {
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
-/* Subrayado consciente */
-.note::after {
-  content: "";
+.particles {
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.6;
-  transition: width 0.45s ease;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.note:hover::after {
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.5;
+}
+
+/* Header */
+.header {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.headerContent {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerIcon {
+  width: 50px;
+  height: 50px;
+  color: #FF6B8B;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+
+.titleAccent {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    #FF6B8B,
+    #3B82F6,
+    #10B981,
+    #8B5CF6
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Wrapper */
+.wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+/* Note Container */
+.noteContainer {
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.noteFrame {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid;
+  border-radius: 16px;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.noteBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+/* Note Icon */
+.noteIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  font-size: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Note Content */
+.noteContent {
+  position: relative;
+  z-index: 2;
+}
+
+.noteText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 1.5rem 0;
+}
+
+.noteIndicator {
+  height: 2px;
+  border-radius: 1px;
+  margin-top: 1rem;
+}
+
+/* Principle Number */
+.principleNumber {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}
+
+/* Note Glow */
+.noteGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerContent {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.quoteMark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 5rem;
+  color: #8B5CF6;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.footerQuote {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 600px;
+}
+
+.quoteAuthor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.authorName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.authorTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .noteContainer {
+    padding: 2rem;
+  }
+  
+  .noteIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .noteText {
+    font-size: 1.1rem;
+  }
+  
+  .backgroundWord {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.noteContainer:hover {
+  animation: float 2s ease-in-out infinite;
 }
