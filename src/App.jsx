@@ -5,6 +5,7 @@ import Navbar from './sections/Navbar'
 import Notes from './sections/Notes'
 import Process from './sections/Process'
 import Projects from './sections/Projects'
+import About from './sections/About'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Cover />
       <Manifesto />
+      <About />
       <Process />
       <Projects />
       <Notes />

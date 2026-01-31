@@ -1,0 +1,82 @@
+.about {
+  position: relative;
+  padding: 18vh 8vw;
+  background: #0d0c0b; /* Negro carbón profundo */
+  color: #e5e0d8;
+  overflow: hidden;
+}
+
+/* Textura de tierra profunda */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.kicker {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #f1bf3b; /* Oro */
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 4rem;
+}
+
+.accent {
+  color: #a62621; /* Rojo barro */
+  font-style: italic;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  line-height: 1.4;
+  color: rgba(229, 224, 216, 0.9);
+}
+
+.highlight {
+  color: #f1bf3b; /* Oro para énfasis */
+  font-weight: 700;
+}
+
+/* Marca de agua maximalista */
+.backgroundText {
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(8rem, 20vw, 15rem);
+  font-weight: 900;
+  color: rgba(241, 191, 59, 0.03);
+  pointer-events: none;
+  z-index: 2;
+  text-transform: uppercase;
+}
