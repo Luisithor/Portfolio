@@ -1,358 +1,105 @@
 .cover {
   position: relative;
   min-height: 100vh;
+  background-color: #f1bf3b; 
+  color: #1a1a1a;
   display: flex;
   align-items: center;
-  padding: 0 8vw;
+  padding: 0 10vw;
   overflow: hidden;
-  background: #0a0a0a;
-  color: white;
+  cursor: default;
 }
 
-.gradientBackground {
+.grain {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 107, 139, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-  z-index: -2;
-}
-
-.particlesContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
+  inset: 0;
   pointer-events: none;
+  z-index: 2;
+  opacity: 0.18;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  mix-blend-mode: multiply;
 }
 
-/* Floating elements */
-.floatingElement {
+.background {
   position: absolute;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.elementIcon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Connection line */
-.connectionLine {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.3;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.06),
+    transparent 80%
+  );
+  z-index: 1;
 }
 
 .wrapper {
   position: relative;
-  max-width: 1000px;
-  z-index: 1;
-}
-
-/* Signature */
-.signatureContainer {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 4rem;
-}
-
-.signature {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: white;
-  position: relative;
-  z-index: 2;
-}
-
-.signatureGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 107, 139, 0.3) 0%, transparent 70%);
-  filter: blur(20px);
-  z-index: 1;
-}
-
-/* Title styles */
-.titleContainer {
-  margin-bottom: 3rem;
-}
-
-.static {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  font-weight: 700;
-  line-height: 1;
-  margin: 0;
-}
-
-/* Glitch effect */
-.glitchContainer {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.glitch {
-  position: relative;
-  display: inline-block;
-  color: white;
-}
-
-/* El primer span es el texto visible */
-.glitch span:first-child {
-  position: relative;
-  display: block;
-  color: white;
+  max-width: 1200px;
   z-index: 3;
 }
 
-/* Los otros spans son los efectos de glitch */
-.glitch span:nth-child(2) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #FF6B8B;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-  z-index: 2;
-  animation: glitch-anim-1 2s infinite linear alternate-reverse;
-  pointer-events: none;
-}
-
-.glitch span:nth-child(3) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #3B82F6;
-  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-  z-index: 1;
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
-  pointer-events: none;
-}
-
-@keyframes glitch-anim-1 {
-  0% { 
-    transform: translateX(0); 
-    opacity: 0.8;
-  }
-  20% { 
-    transform: translateX(-2px); 
-    opacity: 1;
-  }
-  40% { 
-    transform: translateX(2px); 
-    opacity: 0.8;
-  }
-  60% { 
-    transform: translateX(-1px); 
-    opacity: 1;
-  }
-  80% { 
-    transform: translateX(1px); 
-    opacity: 0.8;
-  }
-  100% { 
-    transform: translateX(0); 
-    opacity: 0.8;
-  }
-}
-
-@keyframes glitch-anim-2 {
-  0% { 
-    transform: translateX(0); 
-    opacity: 0.6;
-  }
-  25% { 
-    transform: translateX(2px); 
-    opacity: 1;
-  }
-  50% { 
-    transform: translateX(-2px); 
-    opacity: 0.6;
-  }
-  75% { 
-    transform: translateX(1px); 
-    opacity: 1;
-  }
-  100% { 
-    transform: translateX(0); 
-    opacity: 0.6;
-  }
-}
-
-.glitch span {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.glitch span:nth-child(2) {
-  animation: glitch-anim-1 2s infinite linear alternate-reverse;
-  color: #FF6B8B;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-}
-
-.glitch span:nth-child(3) {
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
-  color: #3B82F6;
-  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-}
-
-@keyframes glitch-anim-1 {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-2px); }
-  40% { transform: translateX(2px); }
-  60% { transform: translateX(-1px); }
-  80% { transform: translateX(1px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes glitch-anim-2 {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(2px); }
-  50% { transform: translateX(-2px); }
-  75% { transform: translateX(1px); }
-  100% { transform: translateX(0); }
-}
-
-/* Dynamic words */
-.dynamicWords {
-  display: flex;
-  gap: 1rem;
-  margin: 1.5rem 0;
-  flex-wrap: wrap;
-}
-
-.word {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 7vw, 5rem);
+.signature {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
   font-weight: 800;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.word1 { background: rgba(255, 107, 139, 0.1); }
-.word2 { background: rgba(59, 130, 246, 0.1); }
-.word3 { background: rgba(16, 185, 129, 0.1); }
-
-/* Subtitle */
-.subtitleContainer {
-  margin-bottom: 3rem;
-}
-
-.roleTags {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.tag {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: default;
+  margin-bottom: 3rem;
+  opacity: 0.7;
 }
 
-.meta {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  opacity: 0.8;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.title {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  margin: 0 0 2.5rem 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png"); 
+  background-color: #1a1a1a; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.05));
 }
 
-/* CTA Button */
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #FF6B8B, #3B82F6);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(255, 107, 139, 0.2);
+.highlight {
+  color: #a62621;
+  -webkit-text-fill-color: #a62621; 
+  font-style: italic;
+  font-family: "Playfair Display", serif;
 }
 
-/* Scroll indicator */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.25;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  mix-blend-mode: multiply;
+}
+
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 460px;
+  opacity: 0.85;
+}
+
 .scrollIndicator {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  z-index: 3;
 }
 
-.scrollLine {
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, white, transparent);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .dynamicWords {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .roleTags {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .floatingElement {
-    display: none;
-  }
+.scrollIndicator span {
+  display: block;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, #1a1a1a, transparent);
+  opacity: 0.6;
 }
