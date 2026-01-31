@@ -1,12 +1,11 @@
 .about {
   position: relative;
   padding: 18vh 8vw;
-  background: #0d0c0b; /* Negro carbón profundo */
+  background: #0d0c0b;
   color: #e5e0d8;
   overflow: hidden;
 }
 
-/* Textura de tierra profunda */
 .about::before {
   content: "";
   position: absolute;
@@ -31,7 +30,7 @@
   font-weight: 800;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: #f1bf3b; /* Oro */
+  color: #f1bf3b;
   margin-bottom: 2rem;
 }
 
@@ -45,10 +44,13 @@
 }
 
 .accent {
-  color: #a62621; /* Rojo barro */
+  color: #a62621;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
   font-style: italic;
+  text-decoration: underline rgba(241, 191, 59, 0.3) 4px;
+  text-underline-offset: 8px;
 }
-
 .textBlock {
   display: flex;
   flex-direction: column;
@@ -63,11 +65,10 @@
 }
 
 .highlight {
-  color: #f1bf3b; /* Oro para énfasis */
+  color: #f1bf3b;
   font-weight: 700;
 }
 
-/* Marca de agua maximalista */
 .backgroundText {
   position: absolute;
   bottom: -5%;
