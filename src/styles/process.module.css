@@ -1,13 +1,12 @@
 .process {
   position: relative;
   padding: 15vh 6vw;
-  background: #F4F3EF; /* Papel hueso rígido */
-  color: #111111;      /* Negro tinta */
+  background: #F4F3EF; 
+  color: #111111;     
   overflow: hidden;
   cursor: crosshair;
 }
 
-/* Grano táctil de lija */
 .grain {
   position: absolute;
   inset: 0;
@@ -19,12 +18,12 @@
 }
 
 .process::before {
-  display: none; /* Eliminamos texturas oscuras corporativas */
+  display: none;
 }
 
 .header {
   max-width: 1000px;
-  margin: 0 0 6rem 0; /* Totalmente alineado a la izquierda */
+  margin: 0 0 6rem 0; 
   text-align: left;
   z-index: 2;
   position: relative;
@@ -38,7 +37,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #F4F3EF;
-  background: #111111; /* Bloque fanzine negro */
+  background: #111111; 
   padding: 4px 10px;
   margin-bottom: 2rem;
 }
@@ -55,7 +54,7 @@
 
 .list {
   max-width: 1000px;
-  margin: 0; /* Rompe el centrado sumiso */
+  margin: 0; 
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -73,7 +72,6 @@
   transition: all 0.2s ease;
 }
 
-/* Transición violenta a Azul Klein en cada fase del proceso */
 .step:hover {
   background: #0026C8;
   color: #F4F3EF;
@@ -102,7 +100,7 @@
 .icon {
   width: 32px;
   height: 32px;
-  color: #0026C8; /* Azul Klein por defecto */
+  color: #0026C8; 
   transition: color 0.2s ease;
 }
 

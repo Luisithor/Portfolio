@@ -3,14 +3,13 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: #F4F3EF; /* Fondo papel hueso */
-  border-bottom: 2px solid #111111; /* Línea de división tosca */
+  background: #F4F3EF; 
+  border-bottom: 2px solid #111111;
   transition: padding 0.2s ease;
 }
 
 .scrolled {
-  /* En el brutalismo no suavizamos con transparencias, mantenemos el bloque sólido */
-  box-shadow: 0 4px 0px rgba(0, 38, 200, 0.15); /* Sombra sólida Azul Klein */
+  box-shadow: 0 4px 0px rgba(0, 38, 200, 0.15); 
 }
 
 .container {
@@ -30,7 +29,7 @@
 }
 
 .logoIcon {
-  color: #0026C8; /* Azul Klein */
+  color: #0026C8; 
 }
 
 .logoText {
@@ -55,7 +54,7 @@
 
 .navItems {
   display: flex;
-  gap: 0; /* Unimos los botones como bloques continuos */
+  gap: 0; 
   border: 2px solid #111111;
 }
 
@@ -89,20 +88,19 @@
 }
 
 .menuButton {
-  display: none; /* Se activa en responsivo */
+  display: none; 
   background: none;
   border: none;
   color: #111111;
   cursor: crosshair;
 }
 
-/* Menú móvil como un muro de contención tipográfico */
 .mobileMenu {
   position: fixed;
   inset: 0;
   background: #F4F3EF;
   padding: 5vh 5vw;
-  z-index: 1001; /* Por encima de la navbar */
+  z-index: 1001; 
   display: flex;
   flex-direction: column;
   border-left: 4px solid #111111;

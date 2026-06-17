@@ -8,7 +8,7 @@ const notes = [
   { text: "Las grandes interfaces se sufren o se dominan.", icon: <Heart />, color: "#0026C8" }, 
   { text: "La estructura destruye la decoración inútil.", icon: <Brain />, color: "#0026C8" }, 
   { text: "La claridad técnica es el único respeto digital.", icon: <Lightbulb />, color: "#0026C8" }, 
-  { text: "El pixel no es un adorno, es una puta orden.", icon: <Zap />, color: "#0026C8" }, 
+  { text: "El pixel no es un adorno, es una orden.", icon: <Zap />, color: "#0026C8" }, 
   { text: "La base del software es la accesibilidad sin excusas.", icon: <Shield />, color: "#0026C8" }, 
   { text: "La optimización absoluta es nuestro único ritual.", icon: <HelpCircle />, color: "#0026C8" }
 ];

@@ -8,7 +8,6 @@
   cursor: crosshair;
 }
 
-/* Textura rugosa de lija para dar el carácter físico del "Ritual" */
 .gridBackground {
   position: absolute;
   inset: 0;
@@ -19,13 +18,13 @@
 }
 
 .manifesto::after {
-  display: none; /* Eliminamos patrones corporativos sutiles */
+  display: none; 
 }
 
 .content {
   position: relative;
   max-width: 1100px;
-  margin: 0; /* Rompe la simetría perfecta alineando a la izquierda */
+  margin: 0; 
   z-index: 3;
 }
 
@@ -37,7 +36,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #F4F3EF;
-  background: #111111; /* Bloque sólido fanzine */
+  background: #111111; 
   padding: 4px 10px;
   margin-bottom: 2.5rem;
 }
@@ -53,7 +52,6 @@
   color: #111111;
 }
 
-/* Lista monolítica pegada tipo bloque impreso */
 .manifestoList {
   display: flex;
   flex-direction: column;
@@ -72,9 +70,8 @@
   transition: all 0.2s ease;
 }
 
-/* Inversión violenta de color al pasar el mouse */
 .manifestoItem:hover {
-  background: #0026C8; /* Explosión Azul Klein */
+  background: #0026C8;
   color: #F4F3EF;
   padding-left: 2rem;
 }
@@ -97,13 +94,12 @@
   font-family: "Inter", sans-serif; 
   font-size: clamp(1.4rem, 3vw, 2.5rem);
   font-weight: 800;
-  font-style: normal; /* Fuera itálicas tímidas */
+  font-style: normal; 
   line-height: 1.1;
   letter-spacing: -0.04em;
   text-transform: uppercase;
 }
 
-/* Punto de énfasis: Bloque Azul Klein nativo */
 .emphasis {
   background: rgba(0, 38, 200, 0.08);
 }

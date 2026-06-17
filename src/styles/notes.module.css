@@ -1,13 +1,12 @@
 .notes {
   position: relative;
   padding: 15vh 6vw;
-  background: #F4F3EF; /* Papel hueso rígido */
-  color: #111111;      /* Negro tinta */
+  background: #F4F3EF; 
+  color: #111111;      
   overflow: hidden;
   cursor: crosshair;
 }
 
-/* Grano ruidoso y táctil de lija */
 .notes::before {
   content: "";
   position: absolute;
@@ -30,7 +29,6 @@
   font-family: 'Arial Black', sans-serif;
   font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 900;
-  /* Azul Klein fantasmal pero imponente de fondo */
   color: rgba(0, 38, 200, 0.04); 
   text-transform: uppercase;
   white-space: nowrap;
@@ -39,7 +37,7 @@
 
 .header {
   margin-bottom: 6rem;
-  text-align: left; /* Rompemos el centrado sumiso */
+  text-align: left; 
   position: relative;
   z-index: 3;
 }
@@ -47,7 +45,7 @@
 .headerIcon {
   width: 36px;
   height: 36px;
-  color: #0026C8; /* Azul Klein */
+  color: #0026C8; 
   margin-bottom: 1.5rem;
 }
 
@@ -76,13 +74,12 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #F4F3EF;
-  background: #111111; /* Bloque fanzine negro */
+  background: #111111; 
   padding: 4px 10px;
   margin-top: 2rem;
   opacity: 1;
 }
 
-/* Unimos las tarjetas en un solo bloque macizo dividido por líneas gruesas */
 .notesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -104,7 +101,6 @@
   transition: all 0.2s ease;
 }
 
-/* Explosión cromática brutal al hover */
 .noteContainer:hover {
   background: #0026C8;
   color: #F4F3EF;
@@ -120,7 +116,6 @@
   transition: color 0.2s ease;
 }
 
-/* Forzamos que los íconos respondan al cambio del contenedor */
 .noteContainer:hover .noteIcon {
   color: #F4F3EF !important;
 }
@@ -150,9 +145,8 @@
   color: #F4F3EF;
 }
 
-/* Cierre del bloque de principios */
 .footer {
-  text-align: left; /* Alineación tosca */
+  text-align: left; 
   padding-top: 4rem;
   border-top: 2px solid #111111;
   position: relative;
