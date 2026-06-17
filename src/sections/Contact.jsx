@@ -7,19 +7,16 @@ const socialLinks = [
     platform: "Email",
     url: "mailto:luismmunoz409@gmail.com",
     icon: <Mail strokeWidth={2.5} />,
-    username: "luismmunoz409@gmail.com",
   },
   {
     platform: "LinkedIn",
     url: "https://linkedin.com/in/luismm12",
     icon: <Linkedin strokeWidth={2.5} />,
-    username: "luismm12",
   },
   {
     platform: "GitHub",
     url: "https://github.com/Luisithor",
     icon: <Github strokeWidth={2.5} />,
-    username: "Luisithor",
   },
 ];
 
