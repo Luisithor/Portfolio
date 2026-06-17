@@ -46,9 +46,7 @@ export default function Cover() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          Si venías a buscar una plantilla amigable y un desarrollador sumiso que diga que 
-          sí a todo, estás perdiendo el tiempo. Cierro la pestaña por ti o te quedas a ver 
-          cómo se destruye el software aburrido. Tú decides.
+          Si venías a buscar una plantilla amigable y software genérico que le dice que sí a todo, estás perdiendo el tiempo. Cierro los ojos ante el diseño flojo o te quedas a ver cómo destruimos el internet aburrido. Tú decides.
         </motion.p>
       </div>
 
