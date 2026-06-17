@@ -1,149 +1,205 @@
 .projects {
   position: relative;
-  padding: 16vh 8vw;
-  background: #f1bf3b; 
-  color: #1a1a1a;
+  padding: 15vh 6vw;
+  background: #F4F3EF; 
+  color: #111111;      
   overflow: hidden;
+  cursor: crosshair;
 }
 
 .projects::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.4;
+  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
   pointer-events: none;
-  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
   z-index: 1;
 }
 
 .header {
   max-width: 1000px;
-  margin: 0 auto 10rem auto;
+  margin: 0 0 6rem 0; 
   position: relative;
   z-index: 2;
 }
 
 .kicker {
+  display: inline-block;
   font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 1.5rem;
-  display: block;
+  color: #F4F3EF;
+  background: #111111; 
+  padding: 4px 10px;
+  margin-bottom: 2rem;
 }
 
 .title {
-  font-family: "Playfair Display", serif;
+  font-family: "Arial Black", "Impact", sans-serif;
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: #1a1a1a;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #111111;
 }
 
 .list {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12rem; 
+  gap: 0; 
   position: relative;
   z-index: 2;
+  border-top: 2px solid #111111;
+  border-left: 2px solid #111111;
 }
 
 .project {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 4rem;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
   align-items: start;
+  padding: 4rem 2rem;
+  background: #F4F3EF;
+  border-right: 2px solid #111111;
+  border-bottom: 2px solid #111111;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project:hover {
+  background: #0026C8; 
+  color: #F4F3EF;
 }
 
 .index {
-  font-family: "Playfair Display", serif;
-  font-style: italic;
+  font-family: "Arial Black", sans-serif;
   font-weight: 900;
-  font-size: 2.5rem;
-  color: rgba(166, 38, 33, 0.8);
+  font-size: 2.2rem;
+  color: #111111;
   line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.project:hover .index {
+  color: #F4F3EF;
 }
 
 .name {
-  font-family: "Playfair Display", serif;
+  font-family: "Arial Black", sans-serif;
   font-weight: 900;
-  font-size: clamp(3rem, 6vw, 5rem);
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem 0;
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.04em;
+  margin: 0 0 0.5rem 0;
+  line-height: 0.85;
+  text-transform: uppercase;
 }
 
 .concept {
   font-family: "Inter", sans-serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.7);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-style: normal;
+  font-weight: 800;
+  color: #0026C8; 
   margin-bottom: 2.5rem;
   display: block;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.project:hover .concept {
+  color: #F4F3EF;
 }
 
 .description {
   font-family: "Inter", sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #1a1a1a;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  line-height: 1.3;
+  font-weight: 600;
+  color: #111111;
   margin-bottom: 3rem;
-  max-width: 600px;
+  max-width: 750px;
+}
+
+.project:hover .description {
+  color: #F4F3EF;
 }
 
 .notes {
   list-style: none;
   padding: 0;
   margin: 0 0 3.5rem 0;
-  border-left: 1px solid rgba(166, 38, 33, 0.3); 
+  border-left: 4px solid #111111; 
   padding-left: 1.5rem;
+}
+
+.project:hover .notes {
+  border-left-color: #F4F3EF;
 }
 
 .notes li {
   font-family: "Inter", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #111111;
+  padding: 0.3rem 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.project:hover .notes li {
+  color: #F4F3EF;
 }
 
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: center;
+  gap: 1rem;
   font-family: "Inter", sans-serif;
   font-weight: 900;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.05em;
   text-decoration: none;
-  color: #1a1a1a;
-  border-bottom: 2px solid #1a1a1a;
-  padding-bottom: 4px;
-  transition: all 0.3s ease;
+  color: #F4F3EF;
+  background: #111111;
+  padding: 1rem 2.5rem;
+  border: 2px solid #111111;
+  transition: all 0.2s ease;
+}
+
+.project:hover .link {
+  background: #F4F3EF;
+  color: #0026C8;
+  border-color: #F4F3EF;
 }
 
 .link:hover {
-  color: #a62621;
-  border-color: #a62621;
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0px #0026C8;
+}
+
+.project:hover .link:hover {
+  box-shadow: 4px 4px 0px #111111;
 }
 
 .closing {
-  margin: 12rem auto 0 auto;
+  margin: 8rem 0 0 0;
   max-width: 1000px;
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1;
-  color: #1a1a1a;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111111;
+  border-left: 6px solid #0026C8;
+  padding-left: 20px;
   position: relative;
   z-index: 2;
 }
@@ -152,5 +208,6 @@
   .project {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 3rem 1rem;
   }
 }

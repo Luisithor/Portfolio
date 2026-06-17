@@ -4,30 +4,30 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    index: "I", 
+    index: "P_01",
     name: "Pawify",
-    concept: "Designing with heart on sleeve.",
+    concept: "Gestión de refugios y respeto digital.",
     description:
-      "A project born from emotional friction. Pawify explores how clarity, softness, and hierarchy can guide people through vulnerable decisions with grace.",
+      "Un sistema diseñado para resolver la fricción operativa en la gestión de refugios y agilizar los procesos de adopción canina. Pawify demuestra que la empatía no es suavidad; es respeto radical al usuario a través de flujos limpios, jerarquías rígidas y una arquitectura optimizada que elimina el ruido en decisiones vulnerables.",
     notes: [
-      "Clarity over decoration",
-      "Whitespace as emotional relief",
-      "Human-centric flow",
+      "Estructura orientada a la acción",
+      "Cero decoración, máxima utilidad",
+      "Control de flujos optimizado",
     ],
     link: "https://pawifyy.netlify.app/",
   },
   {
-    index: "II",
-    name: "Umbral",
-    concept: "Interfaces with a human pulse.",
+    index: "P_02",
+    name: "Vertitrack",
+    concept: "Precisión técnica sin intermediarios.",
     description:
-      "Umbral is about restraint. Removing noise until only meaning remains. A deliberate exercise in clarity, rhythm, and digital trust.",
+      "Un ejercicio de contención y control de datos. Vertitrack elimina las distracciones de las interfaces genéricas para entregar métricas críticas en tiempo real. Cero elementos decorativos; pura utilidad de sistema diseñada para tomar decisiones bajo presión.",
     notes: [
-      "Radical simplicity",
-      "Narrative-driven structure",
-      "Intentional restraint",
+      "Simplicidad estructural radical",
+      "Layout asimétrico de alto rendimiento",
+      "Carga instantánea sin latencia",
     ],
-    link: "https://umbralweb.netlify.app/",
+    link: "https://vertitrack.netlify.app/",
   },
 ];
 
@@ -39,12 +39,13 @@ export default function Projects() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
       >
-        <span className={styles.kicker}>Selected Projects</span>
+        <span className={styles.kicker}>Sistemas en Producción</span>
         <h2 className={styles.title}>
-          Decisions made <br />
-          <span style={{ fontStyle: 'italic', color: '#a62621' }}>visible.</span>
+          DECISIONES TÉCNICAS
+          <br />
+          <span style={{ color: '#0026C8' }}>HECHAS MATERIA.</span>
         </h2>
       </motion.header>
 
@@ -53,10 +54,10 @@ export default function Projects() {
           <motion.article
             key={project.name}
             className={styles.project}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: i * 0.1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: i * 0.1, ease: [0.86, 0, 0.07, 1] }}
           >
             <div className={styles.index}>{project.index}</div>
 
@@ -72,16 +73,15 @@ export default function Projects() {
                 ))}
               </ul>
 
-              <motion.a
+              <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.link}
-                whileHover={{ gap: '1rem' }}
               >
-                Explore work
-                <ArrowUpRight size={18} strokeWidth={2.5} />
-              </motion.a>
+                EJECUTAR EXPLORACIÓN
+                <ArrowUpRight size={20} strokeWidth={3} />
+              </a>
             </div>
           </motion.article>
         ))}
@@ -89,14 +89,14 @@ export default function Projects() {
 
       <motion.p
         className={styles.closing}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.6, duration: 1.5 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
       >
-        I don’t design to impress.
+        No programo para decorar pantallas.
         <br />
-        I design to make things <span style={{ color: '#a62621' }}>feel right.</span>
+        Programo para imponer <span style={{ color: '#0026C8' }}>orden técnico.</span>
       </motion.p>
     </section>
   );

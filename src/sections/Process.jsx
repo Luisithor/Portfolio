@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
 import styles from "../styles/process.module.css";
-import { Ear, Layers, Code2, Sparkles } from "lucide-react";
+import { EyeOff, Hammer, Code2, Terminal } from "lucide-react";
 
 const steps = [
   {
-    index: "I",
-    title: "Listening",
-    text: "Before interfaces, I listen. I observe friction, intent, and what remains unsaid in the silence of the user.",
-    icon: <Ear strokeWidth={1} />,
+    index: "01",
+    title: "Diagnóstico",
+    text: "No escucho lamentos. Analizo la ineficiencia, el desorden del sistema actual y extraigo los datos reales donde otros solo ven ruido.",
+    icon: <EyeOff strokeWidth={2.5} />,
   },
   {
-    index: "II",
-    title: "Structuring",
-    text: "Clarity is designed. I define hierarchies and systems that feel natural, like they've always been there.",
-    icon: <Layers strokeWidth={1} />,
+    index: "02",
+    title: "Arquitectura",
+    text: "La claridad se impone por la fuerza de la estructura. Defino jerarquías rígidas y flujos optimizados imposibles de romper.",
+    icon: <Hammer strokeWidth={2.5} />,
   },
   {
-    index: "III",
-    title: "Building",
-    text: "Code is a consequence. I translate human needs into precise, intentional digital matter.",
-    icon: <Code2 strokeWidth={1} />,
+    index: "03",
+    title: "Ejecución",
+    text: "El código es la consecuencia final. Traduzco decisiones críticas en materia digital limpia, precisa y lógicamente perfecta.",
+    icon: <Code2 strokeWidth={2.5} />,
   },
   {
-    index: "IV",
-    title: "Refining",
-    text: "I remove noise until only the soul remains. This is where the work begins to breathe.",
-    icon: <Sparkles strokeWidth={1} />,
+    index: "04",
+    title: "Demolición",
+    text: "Elimino cualquier adorno innecesario o distracción visual hasta que solo quede la utilidad pura del sistema. Si no optimiza, muere.",
+    icon: <Terminal strokeWidth={2.5} />,
   },
 ];
 
@@ -36,16 +36,16 @@ export default function Process() {
       
       <motion.header
         className={styles.header}
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
       >
-        <span className={styles.kicker}>Process</span>
+        <span className={styles.kicker}>Metodología de Impacto</span>
         <h2 className={styles.title}>
-          From chaos to 
+          DEL CAOS A LA
           <br />
-          <span style={{ color: '#f1bf3b' }}>Intention.</span>
+          <span style={{ color: '#0026C8' }}>EJECUCIÓN.</span>
         </h2>
       </motion.header>
 
@@ -54,10 +54,10 @@ export default function Process() {
           <motion.article
             key={step.title}
             className={styles.step}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.9, delay: i * 0.1 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.86, 0, 0.07, 1] }}
           >
             <div className={styles.meta}>
               <span className={styles.index}>{step.index}</span>
@@ -74,14 +74,14 @@ export default function Process() {
 
       <motion.p
         className={styles.final}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.5, duration: 1 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
       >
-        Process is not a line.
+        El proceso no es una negociación.
         <br />
-        It is a presence.
+        Es el control absoluto del entorno.
       </motion.p>
     </section>
   );

@@ -1,17 +1,19 @@
 .notes {
   position: relative;
-  padding: 15vh 8vw;
-  background: #0d0c0b; 
-  color: #e5e0d8;
+  padding: 15vh 6vw;
+  background: #F4F3EF; /* Papel hueso rígido */
+  color: #111111;      /* Negro tinta */
   overflow: hidden;
+  cursor: crosshair;
 }
 
+/* Grano ruidoso y táctil de lija */
 .notes::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.15;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+  opacity: 0.4;
+  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
   pointer-events: none;
   z-index: 1;
 }
@@ -25,94 +27,112 @@
 
 .backgroundWord {
   position: absolute;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 10vw, 8rem);
+  font-family: 'Arial Black', sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 900;
-  color: rgba(241, 191, 59, 0.03); 
+  /* Azul Klein fantasmal pero imponente de fondo */
+  color: rgba(0, 38, 200, 0.04); 
   text-transform: uppercase;
   white-space: nowrap;
+  letter-spacing: -0.05em;
 }
 
 .header {
-  margin-bottom: 8rem;
-  text-align: center;
+  margin-bottom: 6rem;
+  text-align: left; /* Rompemos el centrado sumiso */
   position: relative;
   z-index: 3;
 }
 
 .headerIcon {
-  width: 40px;
-  height: 40px;
-  color: #a62621;
-  margin-bottom: 2rem;
+  width: 36px;
+  height: 36px;
+  color: #0026C8; /* Azul Klein */
+  margin-bottom: 1.5rem;
 }
 
 .title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  text-transform: uppercase;
 }
 
 .titleAccent {
   display: block;
-  font-size: 0.5em;
-  font-style: italic;
-  font-family: 'Playfair Display', serif;
-  color: #f1bf3b;
-  margin-top: 1rem;
+  font-size: 1em;
+  font-style: normal;
+  font-family: inherit;
+  color: #0026C8;
 }
 
 .subtitle {
+  display: inline-block;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  opacity: 0.5;
+  letter-spacing: 0.1em;
+  color: #F4F3EF;
+  background: #111111; /* Bloque fanzine negro */
+  padding: 4px 10px;
   margin-top: 2rem;
+  opacity: 1;
 }
 
+/* Unimos las tarjetas en un solo bloque macizo dividido por líneas gruesas */
 .notesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
   margin-bottom: 8rem;
   position: relative;
   z-index: 3;
+  border-top: 2px solid #111111;
+  border-left: 2px solid #111111;
 }
 
 .noteContainer {
   position: relative;
-  padding: 3rem 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(241, 191, 59, 0.1);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 3.5rem 2rem 2.5rem 2rem;
+  background: #F4F3EF;
+  border-right: 2px solid #111111;
+  border-bottom: 2px solid #111111;
   overflow: hidden;
+  transition: all 0.2s ease;
 }
 
+/* Explosión cromática brutal al hover */
 .noteContainer:hover {
-  background: rgba(241, 191, 59, 0.05);
-  border-color: #a62621;
+  background: #0026C8;
+  color: #F4F3EF;
 }
 
 .noteIcon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 2rem;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.2s ease;
+}
+
+/* Forzamos que los íconos respondan al cambio del contenedor */
+.noteContainer:hover .noteIcon {
+  color: #F4F3EF !important;
 }
 
 .noteText {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #f5f5f5;
-  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .principleNumber {
@@ -120,35 +140,44 @@
   top: 1.5rem;
   right: 1.5rem;
   font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 900;
-  letter-spacing: 0.2em;
-  color: #f1bf3b;
+  letter-spacing: 0.05em;
+  color: #111111;
 }
 
-/* Footer de Manifiesto */
+.noteContainer:hover .principleNumber {
+  color: #F4F3EF;
+}
+
+/* Cierre del bloque de principios */
 .footer {
-  text-align: center;
-  padding-top: 6rem;
-  border-top: 1px solid rgba(241, 191, 59, 0.1);
+  text-align: left; /* Alineación tosca */
+  padding-top: 4rem;
+  border-top: 2px solid #111111;
   position: relative;
   z-index: 3;
 }
 
 .footerQuote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-style: italic;
-  font-weight: 700;
-  color: #f1bf3b;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111111;
+  max-width: 900px;
 }
 
 .authorName {
   font-family: 'Inter', sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
   margin-top: 1.5rem;
   display: block;
+  color: #0026C8;
 }

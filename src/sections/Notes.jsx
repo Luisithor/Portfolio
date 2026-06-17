@@ -1,24 +1,24 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import styles from "../styles/notes.module.css";
-import { Target, Eye, Heart, Brain, Lightbulb, Zap, Sparkles, MessageSquare, Quote } from "lucide-react";
+import { Target, Eye, Heart, Brain, Lightbulb, Zap, Shield, HelpCircle, Quote } from "lucide-react";
 
 const notes = [
-  { text: "Fewer options build more trust.", icon: <Target />, color: "#a62621" }, // Rojo barro
-  { text: "Design is also silence.", icon: <Eye />, color: "#4a5d4e" }, // Verde nopal oscuro
-  { text: "Great interfaces are felt.", icon: <Heart />, color: "#f1bf3b" }, // Oro
-  { text: "Structure over decoration.", icon: <Brain />, color: "#d9d2c5" }, // Hueso
-  { text: "Clarity is respect.", icon: <Lightbulb />, color: "#a62621" },
-  { text: "Pixel as intention.", icon: <Zap />, color: "#4a5d4e" },
-  { text: "Foundation is access.", icon: <Sparkles />, color: "#f1bf3b" },
-  { text: "Simplicity is ritual.", icon: <MessageSquare />, color: "#d9d2c5" }
+  { text: "Menos opciones imponen más control.", icon: <Target />, color: "#0026C8" }, 
+  { text: "El diseño cobarde satura; el diseño de autor calla.", icon: <Eye />, color: "#0026C8" }, 
+  { text: "Las grandes interfaces se sufren o se dominan.", icon: <Heart />, color: "#0026C8" }, 
+  { text: "La estructura destruye la decoración inútil.", icon: <Brain />, color: "#0026C8" }, 
+  { text: "La claridad técnica es el único respeto digital.", icon: <Lightbulb />, color: "#0026C8" }, 
+  { text: "El pixel no es un adorno, es una puta orden.", icon: <Zap />, color: "#0026C8" }, 
+  { text: "La base del software es la accesibilidad sin excusas.", icon: <Shield />, color: "#0026C8" }, 
+  { text: "La optimización absoluta es nuestro único ritual.", icon: <HelpCircle />, color: "#0026C8" }
 ];
 
 export default function Notes() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springConfig = { damping: 20, stiffness: 100 };
-  const smoothX = useSpring(useTransform(x, [-100, 100], [-15, 15]), springConfig);
-  const smoothY = useSpring(useTransform(y, [-100, 100], [-15, 15]), springConfig);
+  const springConfig = { damping: 15, stiffness: 120 };
+  const smoothX = useSpring(useTransform(x, [-100, 100], [-20, 20]), springConfig);
+  const smoothY = useSpring(useTransform(y, [-100, 100], [-20, 20]), springConfig);
 
   return (
     <section className={styles.notes} onMouseMove={(e) => {
@@ -28,21 +28,21 @@ export default function Notes() {
     }}>
       
       <div className={styles.typographyBackground}>
-        {["IDENTITY", "CULTURE", "RITUAL"].map((word, i) => (
+        {["CÓDIGO", "FUERZA", "RITUAL"].map((word, i) => (
           <motion.span key={word} className={styles.backgroundWord}
-            style={{ left: `${5 + i * 30}%`, top: `${15 + i * 25}%`, x: smoothX, y: smoothY }}>
+            style={{ left: `${5 + i * 28}%`, top: `${20 + i * i * 10}%`, x: smoothX, y: smoothY }}>
             {word}
           </motion.span>
         ))}
       </div>
 
-      <motion.div className={styles.header} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+      <motion.div className={styles.header} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
         <div className={styles.headerContent}>
-          <Quote className={styles.headerIcon} strokeWidth={1} />
+          <Quote className={styles.headerIcon} strokeWidth={2.5} />
           <h2 className={styles.title}>
-            Design <span className={styles.titleAccent}>Principles</span>
+            LEYES DE <span className={styles.titleAccent}>CONTROL</span>
           </h2>
-          <p className={styles.subtitle}>Distilled Philosophy</p>
+          <p className={styles.subtitle}>Filosofía No Complaciente</p>
         </div>
       </motion.div>
 
@@ -50,12 +50,14 @@ export default function Notes() {
         <div className={styles.notesGrid}>
           {notes.map((note, index) => (
             <motion.div key={index} className={styles.noteContainer}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}>
+              transition={{ duration: 0.4, ease: [0.86, 0, 0.07, 1] }}
+              whileHover={{ y: 0 }} // En el brutalismo compacto eliminamos el desplazamiento flotante, preferimos el golpe de color plano
+            >
               
-              <div className={styles.principleNumber}>{String(index + 1).padStart(2, "0")}</div>
+              <div className={styles.principleNumber}>L_0{index + 1}</div>
               
               <div className={styles.noteIcon} style={{ color: note.color }}>
                 {note.icon}
@@ -70,8 +72,8 @@ export default function Notes() {
       </div>
 
       <div className={styles.footer}>
-        <p className={styles.footerQuote}>"Good design is as little design as possible."</p>
-        <span className={styles.authorName}>— Dieter Rams</span>
+        <p className={styles.footerQuote}>"Hacer lo que la mayoría acepta es perpetuar la basura que ya inunda la red."</p>
+        <span className={styles.authorName}>— MANIFIESTO RITUAL & CODE</span>
       </div>
     </section>
   );

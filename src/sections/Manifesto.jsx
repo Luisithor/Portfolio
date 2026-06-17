@@ -1,21 +1,21 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import styles from "../styles/manifesto.module.css";
-import { Sparkles, Target, Eye, Heart, Layers } from "lucide-react";
+import { Zap, Target, Eye, Flame, ShieldAlert } from "lucide-react";
 
 export default function Manifesto() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 100 };
-  const moveX = useSpring(useTransform(x, [-200, 200], [-15, 15]), springConfig);
-  const moveY = useSpring(useTransform(y, [-200, 200], [-10, 10]), springConfig);
+  const springConfig = { damping: 15, stiffness: 120 };
+  const moveX = useSpring(useTransform(x, [-200, 200], [-20, 20]), springConfig);
+  const moveY = useSpring(useTransform(y, [-200, 200], [-12, 12]), springConfig);
 
   const manifestoPoints = [
-    { text: "I don’t design screens.", icon: <Layers strokeWidth={1} /> },
-    { text: "I design decisions.", icon: <Target strokeWidth={1} />, emphasis: true },
-    { text: "I design with empathy.", icon: <Heart strokeWidth={1} /> },
-    { text: "I build what users feel.", icon: <Eye strokeWidth={1} /> },
-    { text: "Meaning remains.", icon: <Sparkles strokeWidth={1} /> },
+    { text: "No pinto pantallas. Destruyo la apatía visual.", icon: <Zap strokeWidth={2.5} /> },
+    { text: "Escribo código que impone decisiones, no dudas.", icon: <Target strokeWidth={2.5} />, emphasis: true },
+    { text: "La empatía no es suavidad; es respeto radical al usuario.", icon: <Flame strokeWidth={2.5} /> },
+    { text: "Construyo sistemas que se sienten físicamente en cada interacción.", icon: <Eye strokeWidth={2.5} /> },
+    { text: "La estética genérica muere. La intención trasciende.", icon: <ShieldAlert strokeWidth={2.5} /> },
   ];
 
   return (
@@ -33,18 +33,18 @@ export default function Manifesto() {
         className={styles.content}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.15 } },
+          visible: { transition: { staggerChildren: 0.1 } },
         }}
       >
         <motion.div className={styles.header} variants={fadeUp}>
-          <span className={styles.kicker}>Philosophy & Roots</span>
+          <span className={styles.kicker}>RITUAL & CODE // LEYES</span>
           <h1 className={styles.title}>
-            Design is not how it looks.
+            El diseño no es cómo se ve.
             <br />
-            It’s how it <span style={{ color: '#f1bf3b' }}>listens.</span>
+            Es cómo se <span style={{ color: '#0026C8' }}>impone.</span>
           </h1>
         </motion.div>
 
@@ -63,13 +63,13 @@ export default function Manifesto() {
         </div>
 
         <motion.p className={styles.finalStatement} variants={fadeUp}>
-          I design interfaces that stay quiet enough
+          Creo interfaces con la suficiente fuerza técnica 
           <br />
-          for humans to hear themselves.
+          para obligar al usuario a despertar del letargo digital.
         </motion.p>
 
         <motion.span className={styles.signature} variants={fadeUp}>
-          — Made with intention
+          — Escrito bajo fuego y optimización.
         </motion.span>
       </motion.div>
     </section>
@@ -77,10 +77,10 @@ export default function Manifesto() {
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.86, 0, 0.07, 1] }, // Ajuste brutalista ultra-rápido
   },
 };

@@ -5,60 +5,57 @@ export default function Cover() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const springConfig = { damping: 30, stiffness: 120 };
-  const smoothX = useSpring(
-    useTransform(x, [-300, 300], [-25, 25]),
-    springConfig,
-  );
-  const smoothY = useSpring(
-    useTransform(y, [-300, 300], [-15, 15]),
-    springConfig,
-  );
+  const springConfig = { damping: 15, stiffness: 150 };
+  const smoothX = useSpring(useTransform(x, [-300, 300], [-35, 35]), springConfig);
+  const smoothY = useSpring(useTransform(y, [-300, 300], [-20, 20]), springConfig);
 
   return (
-    <section className={styles.cover}>
+    <section 
+      className={styles.cover}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
+      }}
+    >
       <div className={styles.grain} />
-      <div className={styles.background} />
 
       <div className={styles.wrapper}>
         <motion.span
           className={styles.signature}
           style={{ x: smoothX, y: smoothY }}
         >
-          LUIS MARTÍNEZ — MÉXICO
+          LUIS MARTÍNEZ // CONTROL TOTAL // 2026
         </motion.span>
 
         <motion.h1
           className={styles.title}
           style={{ x: smoothX, y: smoothY }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
+          initial={{ opacity: 0, scale: 0.9, y: 100 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.86, 0, 0.07, 1] }} // Ajuste ultra-agresivo
         >
-          Design as <span className={styles.highlight}>ritual.</span>
-          <br />
-          Code as <span className={styles.highlight}>devotion.</span>
+          ¿OTRO CLON <br />
+          DE INTERNET? <br />
+          <span className={styles.highlight}>AQUÍ NO.</span>
         </motion.h1>
 
         <motion.p
           className={styles.subtitle}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1.2 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
         >
-          Digital experiences shaped by identity,
-          <br />
-          culture and intention.
+          Si venías a buscar una plantilla amigable y un desarrollador sumiso que diga que 
+          sí a todo, estás perdiendo el tiempo. Cierro la pestaña por ti o te quedas a ver 
+          cómo se destruye el software aburrido. Tú decides.
         </motion.p>
       </div>
 
-      <motion.div
-        className={styles.scrollIndicator}
-        animate={{ y: [0, 12, 0], opacity: [0.4, 1, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity }}
-      >
+      <div className={styles.scrollIndicator}>
+        <p className={styles.scrollText}>BAJA BAJO TU PROPIO RIESGO</p>
         <span />
-      </motion.div>
+      </div>
     </section>
   );
 }
