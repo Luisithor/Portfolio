@@ -1,183 +1,179 @@
 .contact {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 12vh 6vw;
-  overflow: hidden;
-  background: #F4F3EF; 
-  color: #111111;      
-  cursor: crosshair;
+  padding: 6rem 6vw 3rem 6vw;
+  background: #F8F7F4;
+  color: #111111;
 }
 
-.contact::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
-  pointer-events: none;
-  z-index: 1;
-}
-
-.content {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0; 
-  position: relative;
-  z-index: 3;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .header {
-  text-align: left; 
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kicker {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #666660;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+  background: #EFEDE6;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #E2E0D8;
 }
 
 .title {
-  font-family: 'Arial Black', 'Impact', sans-serif;
-  font-weight: 900;
-  font-size: clamp(3.2rem, 11vw, 8.5rem);
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  text-transform: uppercase;
-  margin-bottom: 3rem;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem 0;
   color: #111111;
 }
 
-.titleAccent {
-  display: block;
-  color: #0026C8; 
-  font-style: normal;
+.subtitle {
+  color: #70706A;
+  font-weight: 400;
 }
 
 .message {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.3rem, 3vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
-  max-width: 850px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555550;
+  max-width: 580px;
   margin: 0;
-  color: #111111;
 }
 
-.highlight {
-  color: #F4F3EF;
-  background: #0026C8; 
-  padding: 0 8px;
-  display: inline-block;
-}
-
-.linksGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 0;
-  margin-bottom: 6rem;
-  border-top: 2px solid #111111;
-  border-left: 2px solid #111111;
-}
-
-.linkCard {
-  position: relative;
-  padding: 3rem 2rem;
-  background: #F4F3EF;
-  border-right: 2px solid #111111;
-  border-bottom: 2px solid #111111;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
-  text-align: left;
-  transition: background 0.2s ease;
-}
-
-.linkCard:hover {
-  background: #0026C8;
-  color: #F4F3EF;
-}
-
-.linkIcon {
-  color: #0026C8;
-  margin-bottom: 2rem;
-  transition: color 0.2s ease;
-}
-
-.linkCard:hover .linkIcon {
-  color: #F4F3EF; 
-}
-
-.linkPlatform {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-  color: #111111;
-}
-
-.linkCard:hover .linkPlatform {
-  color: #F4F3EF;
-}
-
-.linkUsername {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  word-break: break-all;
+.mainCta {
+  margin-bottom: 3.5rem;
 }
 
 .emailButton {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem 4rem;
+  gap: 8px;
+  padding: 0.85rem 1.8rem;
   background: #111111;
-  color: #F4F3EF;
+  color: #FFFFFF;
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 1.1rem;
-  border: 2px solid #111111;
-  transition: all 0.2s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.88rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .emailButton:hover {
-  background: #0026C8;
-  border-color: #0026C8;
-  color: #F4F3EF;
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0px #111111; 
+  background: #2A2A2A;
+  transform: translateY(-1px);
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+.linkCard {
+  background: #FFFFFF;
+  border: 1px solid #E2E0D8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: #111111;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linkCard:hover {
+  transform: translateY(-2px);
+  border-color: #D5D3CA;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.linkIcon {
+  color: #111111;
+}
+
+.arrow {
+  color: #888880;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.linkCard:hover .arrow {
+  color: #111111;
+  transform: translate(2px, -2px);
+}
+
+.linkPlatform {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #777770;
+  margin-bottom: 0.25rem;
+}
+
+.linkValue {
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #111111;
+  word-break: break-all;
 }
 
 .footer {
-  text-align: left;
-  padding-top: 4rem;
-  border-top: 2px solid #111111;
+  border-top: 1px solid #E2E0D8;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.footerText {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 1.3rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerName {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
   color: #111111;
 }
 
 .footerMeta {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #0026C8;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #777770;
+}
+
+.copyright {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #888880;
 }

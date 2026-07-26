@@ -1,110 +1,54 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "../styles/about.module.css";
 
 export default function About() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 100 };
-
-  const smoothX = useSpring(
-    useTransform(x, [-200, 200], [-25, 25]),
-    springConfig,
-  );
-  const smoothY = useSpring(
-    useTransform(y, [-200, 200], [-15, 15]),
-    springConfig,
-  );
+  const stack = [
+    { category: "FRONTEND", items: "React, Next.js, TypeScript, Tailwind CSS, Framer Motion" },
+    { category: "BACKEND", items: "Node.js, Express, PostgreSQL, Prisma, REST APIs" },
+    { category: "HERRAMIENTAS", items: "Git, Docker, Figma, Vercel" },
+  ];
 
   return (
-    <section
-      className={styles.about}
-      id="about"
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        x.set(e.clientX - rect.left - rect.width / 2);
-        y.set(e.clientY - rect.top - rect.height / 2);
-      }}
-    >
-      <motion.div
-        className={styles.backgroundText}
-        style={{ x: smoothX, y: smoothY }}
-      >
-        RITUAL
-      </motion.div>
-
+    <section className={styles.about} id="about">
       <motion.div
         className={styles.content}
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <span className={styles.kicker}>
-          ¿Buscabas otra plantilla genérica?
-        </span>
+        <span className={styles.kicker}>SOBRE MÍ // PERFIL</span>
 
         <h2 className={styles.title}>
-          El software aburrido{" "}
-          <span className={styles.accent}>está muerto.</span>
+          Desarrollo enfocado en <br />
+          <span className={styles.subtitle}>estructura, uso real y detalle visual.</span>
         </h2>
 
-        <div className={styles.textBlock}>
-          <p className={styles.text}>
-            La mayoría del software actual funciona. Eso ya no es suficiente.
-            Como desarrollador y diseñador, me interesa crear experiencias que
-            sean claras, memorables y humanas. Busco combinar funcionalidad,
-            identidad y
-            <span className={styles.highlight}> accesibilidad real </span>
-            en cada proyecto.
-          </p>
+        <div className={styles.grid}>
+          {/* Columna Izquierda: Bio Directa */}
+          <div className={styles.bioCol}>
+            <p className={styles.text}>
+              Soy desarrollador de software e ingeniero enfocado en construir productos digitales desde cero. Me especializo en plataformas web y sistemas de gestión donde el rendimiento y la facilidad de uso son prioridad.
+            </p>
+            <p className={styles.text}>
+              Mi enfoque combina rigor técnico en el código con un criterio estético limpio: interfaces intuitivas, código mantenible y soluciones diseñadas específicamente para la operación del negocio.
+            </p>
+          </div>
 
-          <p className={styles.text}>
-            La accesibilidad y el respeto digital no son extras ni favores. Son
-            el punto de partida. Una interfaz debería ayudar a las personas, no
-            obligarlas a adaptarse a ella. El diseño tiene la responsabilidad de
-            generar confianza antes que impresionar.
-          </p>
-
-          <p className={styles.text}>
-            No diseño para encajar en pantallas perfectas. Construyo productos
-            digitales sólidos, directos y pensados para funcionar en condiciones
-            reales, para personas reales.
-          </p>
-
-          <p className={styles.text}>
-            Si buscas otra plantilla genérica, probablemente este no sea tu
-            lugar. Aquí cada decisión tiene una intención:
-            <span className={styles.accent}>
-              {" "}
-              "Engineered for every landscape."
-            </span>
-          </p>
+          {/* Columna Derecha: Stack & Ficha Técnica */}
+          <div className={styles.stackCol}>
+            <h3 className={styles.stackHeading}>TECNOLOGÍAS & STACK</h3>
+            <div className={styles.stackList}>
+              {stack.map((item, index) => (
+                <div key={index} className={styles.stackItem}>
+                  <span className={styles.stackCategory}>[{item.category}]</span>
+                  <span className={styles.stackItems}>{item.items}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </motion.div>
-
-      <motion.svg
-        style={{
-          position: "absolute",
-          bottom: "8%",
-          left: "8%",
-          width: "380px",
-          opacity: 0.8,
-          pointerEvents: "none",
-          zIndex: 2,
-        }}
-        viewBox="0 0 100 100"
-        initial={{ pathLength: 0, rotate: -5 }}
-        whileInView={{ pathLength: 1 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-      >
-        <motion.path
-          d="M5,60 C15,20 35,90 55,40 C65,10 75,80 95,30 C65,90 25,10 5,70 C45,95 65,5 85,60"
-          fill="none"
-          stroke="#0026C8"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      </motion.svg>
     </section>
   );
 }

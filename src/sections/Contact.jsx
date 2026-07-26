@@ -1,105 +1,85 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "../styles/contact.module.css";
-import { Send, Linkedin, Github, Mail } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight, Send } from "lucide-react";
 
 const socialLinks = [
   {
     platform: "Email",
     url: "mailto:luismmunoz409@gmail.com",
-    icon: <Mail strokeWidth={2.5} />,
+    icon: <Mail size={20} strokeWidth={1.75} />,
   },
   {
     platform: "LinkedIn",
     url: "https://linkedin.com/in/luismm12",
-    icon: <Linkedin strokeWidth={2.5} />,
+    icon: <Linkedin size={20} strokeWidth={1.75} />,
   },
   {
     platform: "GitHub",
     url: "https://github.com/Luisithor",
-    icon: <Github strokeWidth={2.5} />,
+    icon: <Github size={20} strokeWidth={1.75} />,
   },
 ];
 
 export default function Contact() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springConfig = { damping: 20, stiffness: 120 };
-  const smoothX = useSpring(
-    useTransform(x, [-200, 200], [-15, 15]),
-    springConfig,
-  );
-  const smoothY = useSpring(
-    useTransform(y, [-200, 200], [-8, 8]),
-    springConfig,
-  );
-
   return (
-    <section
-      className={styles.contact}
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        x.set(e.clientX - rect.left - rect.width / 2);
-        y.set(e.clientY - rect.top - rect.height / 2);
-      }}
-    >
-      <motion.div
-        className={styles.content}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-      >
-        <header className={styles.header}>
-          <motion.h1
-            className={styles.title}
-            style={{ x: smoothX, y: smoothY }}
-          >
-            ¿HACEMOS ALGO{" "}
-            <span className={styles.titleAccent}>O TE DA MIEDO?</span>
-          </motion.h1>
+    <section className={styles.contact} id="contact">
+      <div className={styles.container}>
+        <motion.div
+          className={styles.content}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <header className={styles.header}>
+            <span className={styles.kicker}>CONTACTO</span>
+            <h2 className={styles.title}>
+              ¿Tienes un proyecto en mente? <br />
+              <span className={styles.subtitle}>Hablemos de tus necesidades.</span>
+            </h2>
+            <p className={styles.message}>
+              Estoy disponible para desarrollo de proyectos a medida, consultoría o colaboraciones. Si buscas construir software eficiente y funcional, escríbeme.
+            </p>
+          </header>
 
-          <p className={styles.message}>
-            Si buscas un desarrollo mecánico que solo traduzca ideas a pantallas
-            planas, búscalo en otra parte. Si quieres construir sistemas con{" "}
-            <span className={styles.highlight}>intención radical</span> y romper
-            el molde de siempre, hablemos. **Solo faltas tú.**
-          </p>
-        </header>
-
-        <div className={styles.linksGrid}>
-          {socialLinks.map((link, index) => (
+          <div className={styles.mainCta}>
             <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.linkCard}
+              href="mailto:luismmunoz409@gmail.com"
+              className={styles.emailButton}
             >
-              <div className={styles.linkIcon}>{link.icon}</div>
-              <span className={styles.linkPlatform}>{link.platform}</span>
-              <span className={styles.linkUsername}>{link.username}</span>
+              <Send size={18} />
+              <span>Enviar correo directo</span>
             </a>
-          ))}
-        </div>
+          </div>
 
-        <div style={{ textAlign: "left", marginBottom: "8rem" }}>
-          <motion.a
-            href="mailto:luismmunoz409@gmail.com"
-            className={styles.emailButton}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Send size={20} strokeWidth={3} />
-            FORZAR CONTACTO
-          </motion.a>
-        </div>
+          <div className={styles.linksGrid}>
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.linkCard}
+              >
+                <div className={styles.cardHeader}>
+                  <div className={styles.linkIcon}>{link.icon}</div>
+                  <ArrowUpRight size={16} className={styles.arrow} />
+                </div>
+                <span className={styles.linkPlatform}>{link.platform}</span>
+                <span className={styles.linkValue}>{link.value}</span>
+              </a>
+            ))}
+          </div>
 
-        <footer className={styles.footer}>
-          <p className={styles.footerText}>RITUAL & CODE // LUIS MARTÍNEZ</p>
-          <p className={styles.footerMeta}>
-            SOFTWARE DEVELOPER — CREATIVE ENGINEER — MÉXICO
-          </p>
-        </footer>
-      </motion.div>
+          <footer className={styles.footer}>
+            <div className={styles.footerCol}>
+              <span className={styles.footerName}>LUIS MARTÍNEZ</span>
+              <span className={styles.footerMeta}>DESARROLLADOR DE SOFTWARE — MÉXICO</span>
+            </div>
+            <span className={styles.copyright}>© 2026 // TODOS LOS DERECHOS RESERVADOS</span>
+          </footer>
+        </motion.div>
+      </div>
     </section>
   );
 }

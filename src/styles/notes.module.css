@@ -1,177 +1,116 @@
 .notes {
   position: relative;
-  padding: 15vh 6vw;
-  background: #F4F3EF; 
-  color: #111111;      
-  overflow: hidden;
-  cursor: crosshair;
+  padding: 6rem 6vw;
+  background: #F8F7F4;
+  color: #111111;
+  border-bottom: 1px solid #E2E0D8;
 }
 
-.notes::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
-  pointer-events: none;
-  z-index: 1;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.typographyBackground {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.backgroundWord {
-  position: absolute;
-  font-family: 'Arial Black', sans-serif;
-  font-size: clamp(4rem, 12vw, 10rem);
-  font-weight: 900;
-  color: rgba(0, 38, 200, 0.04); 
-  text-transform: uppercase;
-  white-space: nowrap;
-  letter-spacing: -0.05em;
-}
-
-.header {
-  margin-bottom: 6rem;
-  text-align: left; 
-  position: relative;
-  z-index: 3;
-}
-
-.headerIcon {
-  width: 36px;
-  height: 36px;
-  color: #0026C8; 
-  margin-bottom: 1.5rem;
+.kicker {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #666660;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+  background: #EFEDE6;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #E2E0D8;
 }
 
 .title {
-  font-family: 'Arial Black', 'Impact', sans-serif;
-  font-size: clamp(3rem, 9vw, 6.5rem);
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
-  text-transform: uppercase;
-}
-
-.titleAccent {
-  display: block;
-  font-size: 1em;
-  font-style: normal;
-  font-family: inherit;
-  color: #0026C8;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 3.5rem 0;
+  color: #111111;
 }
 
 .subtitle {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #F4F3EF;
-  background: #111111; 
-  padding: 4px 10px;
-  margin-top: 2rem;
-  opacity: 1;
+  color: #70706A;
+  font-weight: 400;
 }
 
+/* Grid Limpio de Tarjetas Claras */
 .notesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 0;
-  margin-bottom: 8rem;
-  position: relative;
-  z-index: 3;
-  border-top: 2px solid #111111;
-  border-left: 2px solid #111111;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
 }
 
-.noteContainer {
-  position: relative;
-  padding: 3.5rem 2rem 2.5rem 2rem;
-  background: #F4F3EF;
-  border-right: 2px solid #111111;
-  border-bottom: 2px solid #111111;
-  overflow: hidden;
-  transition: all 0.2s ease;
+.noteCard {
+  background: #FFFFFF;
+  border: 1px solid #E2E0D8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.noteContainer:hover {
-  background: #0026C8;
-  color: #F4F3EF;
+.noteCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  border-color: #D5D3CA;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .noteIcon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 2.5rem;
+  color: #111111;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
 }
 
-.noteContainer:hover .noteIcon {
-  color: #F4F3EF !important;
+.noteIndex {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #888880;
+}
+
+.noteTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 0.5rem 0;
 }
 
 .noteText {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #555550;
   margin: 0;
 }
 
-.principleNumber {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  color: #111111;
+/* Cierre discreto */
+.footerSummary {
+  border-top: 1px solid #E2E0D8;
+  padding-top: 2rem;
 }
 
-.noteContainer:hover .principleNumber {
-  color: #F4F3EF;
-}
-
-.footer {
-  text-align: left; 
-  padding-top: 4rem;
-  border-top: 2px solid #111111;
-  position: relative;
-  z-index: 3;
-}
-
-.footerQuote {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.4rem, 4vw, 2.8rem);
-  font-style: normal;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: #111111;
-  max-width: 900px;
-}
-
-.authorName {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.8rem;
-  margin-top: 1.5rem;
-  display: block;
-  color: #0026C8;
+.summaryText {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #666660;
+  max-width: 600px;
+  margin: 0;
 }

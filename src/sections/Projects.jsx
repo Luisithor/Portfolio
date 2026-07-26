@@ -1,103 +1,111 @@
 import { motion } from "framer-motion";
 import styles from "../styles/projects.module.css";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    index: "P_01",
+    index: "01",
     name: "Pawify",
-    concept: "Gestión de refugios y respeto digital.",
+    concept: "Plataforma de gestión de refugios y adopciones",
     description:
-      "Un sistema diseñado para resolver la fricción operativa en la gestión de refugios y agilizar los procesos de adopción canina. Pawify demuestra que la empatía no es suavidad; es respeto radical al usuario a través de flujos limpios, jerarquías rígidas y una arquitectura optimizada que elimina el ruido en decisiones vulnerables.",
-    notes: [
-      "Estructura orientada a la acción",
-      "Cero decoración, máxima utilidad",
-      "Control de flujos optimizado",
+      "Aplicación web diseñada para optimizar los procesos de adopción y control operativo en refugios caninos. Simplifica la administración de expedientes, solicitudes y seguimiento en una interfaz intuitiva y fluida.",
+    highlights: [
+      "Flujos de adopción simplificados",
+      "Interfaz enfocada en usabilidad",
+      "Gestión y control de expedientes"
     ],
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     link: "https://pawifyy.netlify.app/",
   },
   {
-    index: "P_02",
+    index: "02",
     name: "Vertitrack",
-    concept: "Precisión técnica sin intermediarios.",
+    concept: "Sistema de gestión y mantenimiento de elevadores",
     description:
-      "Un ejercicio de contención y control de datos. Vertitrack elimina las distracciones de las interfaces genéricas para entregar métricas críticas en tiempo real. Cero elementos decorativos; pura utilidad de sistema diseñada para tomar decisiones bajo presión.",
-    notes: [
-      "Simplicidad estructural radical",
-      "Layout asimétrico de alto rendimiento",
-      "Carga instantánea sin latencia",
+      "Plataforma enfocada en el monitoreo y control de servicios de mantenimiento preventivo y correctivo. Permite visualizar métricas operativas y registros de servicio con respuesta rápida.",
+    highlights: [
+      "Visualización de métricas en tiempo real",
+      "Diseño de interfaz de alto rendimiento",
+      "Estructura orientada a operación continua"
     ],
+    tech: ["React", "Express", "PostgreSQL", "REST API"],
     link: "https://vertitrack.netlify.app/",
   },
 ];
 
 export default function Projects() {
   return (
-    <section className={styles.projects}>
-      <motion.header
-        className={styles.header}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-      >
-        <span className={styles.kicker}>Sistemas en Producción</span>
-        <h2 className={styles.title}>
-          DECISIONES TÉCNICAS
-          <br />
-          <span style={{ color: '#0026C8' }}>HECHAS MATERIA.</span>
-        </h2>
-      </motion.header>
+    <section className={styles.projects} id="projects">
+      <div className={styles.container}>
+        <motion.header
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className={styles.kicker}>PROYECTOS DESTACADOS</span>
+          <h2 className={styles.title}>
+            Casos de estudio <br />
+            <span className={styles.subtitle}>y desarrollo en producción.</span>
+          </h2>
+        </motion.header>
 
-      <div className={styles.list}>
-        {projects.map((project, i) => (
-          <motion.article
-            key={project.name}
-            className={styles.project}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: i * 0.1, ease: [0.86, 0, 0.07, 1] }}
-          >
-            <div className={styles.index}>{project.index}</div>
+        <div className={styles.list}>
+          {projects.map((project, i) => (
+            <motion.article
+              key={project.name}
+              className={styles.projectCard}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+            >
+              <div className={styles.cardHeader}>
+                <span className={styles.index}>[{project.index}]</span>
+                <span className={styles.concept}>{project.concept}</span>
+              </div>
 
-            <div className={styles.body}>
-              <h3 className={styles.name}>{project.name}</h3>
-              <span className={styles.concept}>{project.concept}</span>
+              <div className={styles.cardBody}>
+                <h3 className={styles.name}>{project.name}</h3>
+                <p className={styles.description}>{project.description}</p>
 
-              <p className={styles.description}>{project.description}</p>
+                <div className={styles.detailsBlock}>
+                  <div className={styles.highlights}>
+                    <span className={styles.blockLabel}>PUNTOS CLAVE:</span>
+                    <ul>
+                      {project.highlights.map((item) => (
+                        <li key={item}>— {item}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <ul className={styles.notes}>
-                {project.notes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
+                  <div className={styles.techStack}>
+                    <span className={styles.blockLabel}>STACK:</span>
+                    <div className={styles.pills}>
+                      {project.tech.map((t) => (
+                        <span key={t} className={styles.pill}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                EJECUTAR EXPLORACIÓN
-                <ArrowUpRight size={20} strokeWidth={3} />
-              </a>
-            </div>
-          </motion.article>
-        ))}
+                <div className={styles.cardFooter}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.link}
+                  >
+                    <span>Ver proyecto en vivo</span>
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </div>
-
-      <motion.p
-        className={styles.closing}
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-      >
-        No programo para decorar pantallas.
-        <br />
-        Programo para imponer <span style={{ color: '#0026C8' }}>orden técnico.</span>
-      </motion.p>
     </section>
   );
 }

@@ -1,59 +1,62 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "../styles/cover.module.css";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Cover() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150 };
-  const smoothX = useSpring(useTransform(x, [-300, 300], [-35, 35]), springConfig);
-  const smoothY = useSpring(useTransform(y, [-300, 300], [-20, 20]), springConfig);
-
   return (
-    <section 
-      className={styles.cover}
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        x.set(e.clientX - rect.left - rect.width / 2);
-        y.set(e.clientY - rect.top - rect.height / 2);
-      }}
-    >
-      <div className={styles.grain} />
+    <div className={styles.cover}>
+      {/* Columna Izquierda: Mensaje Claro, Directo y Humano */}
+      <div className={styles.infoCol}>
+        <div className={styles.badge}>
+          <span className={styles.statusDot} />
+          <span>DESARROLLO DE SOFTWARE // 2026</span>
+        </div>
 
-      <div className={styles.wrapper}>
-        <motion.span
-          className={styles.signature}
-          style={{ x: smoothX, y: smoothY }}
-        >
-          LUIS MARTÍNEZ // CONTROL TOTAL // 2026
-        </motion.span>
+        <h1 className={styles.title}>
+          Software a medida <br />
+          <span className={styles.titleSubtitle}>para negocios reales.</span>
+        </h1>
 
-        <motion.h1
-          className={styles.title}
-          style={{ x: smoothX, y: smoothY }}
-          initial={{ opacity: 0, scale: 0.9, y: 100 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.86, 0, 0.07, 1] }} // Ajuste ultra-agresivo
-        >
-          ¿OTRO CLON <br />
-          DE INTERNET? <br />
-          <span className={styles.highlight}>AQUÍ NO.</span>
-        </motion.h1>
+        <p className={styles.description}>
+          Construyo plataformas web, sistemas de gestión y herramientas digitales enfocadas en funcionalidad, rendimiento y diseño limpio. Sin plantillas genéricas.
+        </p>
 
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          Si venías a buscar una plantilla amigable y software genérico que le dice que sí a todo, estás perdiendo el tiempo. Cierro los ojos ante el diseño flojo o te quedas a ver cómo destruimos el internet aburrido. Tú decides.
-        </motion.p>
+        <div className={styles.actions}>
+          <a href="#projects" className={styles.primaryBtn}>
+            Ver proyectos
+            <ArrowUpRight size={16} />
+          </a>
+          <a href="#contact" className={styles.secondaryBtn}>
+            Contacto
+          </a>
+        </div>
       </div>
 
-      <div className={styles.scrollIndicator}>
-        <p className={styles.scrollText}>BAJA BAJO TU PROPIO RIESGO</p>
-        <span />
+      {/* Columna Derecha: Vista Previa de Producto en Contenedor Claro */}
+      <div className={styles.visualCol}>
+        <div className={styles.previewCard}>
+          <div className={styles.cardHeader}>
+            <div className={styles.windowControls}>
+              <span className={styles.dotRed} />
+              <span className={styles.dotYellow} />
+              <span className={styles.dotGreen} />
+            </div>
+            <span className={styles.cardTitle}>tabora_pos_v2.0 — preview</span>
+          </div>
+          
+          <div className={styles.cardBody}>
+            {/* Reemplaza este div por la imagen o mockup de tu proyecto real */}
+            <div className={styles.placeholderUI}>
+              <div className={styles.uiHeaderBar} />
+              <div className={styles.uiGrid}>
+                <div className={styles.uiCard} />
+                <div className={styles.uiCard} />
+              </div>
+              <div className={styles.uiTable} />
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
